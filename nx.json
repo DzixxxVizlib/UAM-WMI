@@ -22,5 +22,15 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "api": {
+      "tags": []
+    },
+    "nfw-react": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
 }
