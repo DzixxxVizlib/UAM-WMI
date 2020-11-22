@@ -1,11 +1,11 @@
 import { all } from 'redux-saga/effects';
 
-import { watcher as exampleWatcher } from './example.saga';
+import { watcher as initWatcher } from './init.saga';
 
 // single entry point to start all sagas at once
 export function* rootSaga() {
     yield all([
-      exampleWatcher(),
+      initWatcher(),
       // other watchers goes here!
     ])
   }

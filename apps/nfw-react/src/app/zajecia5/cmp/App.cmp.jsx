@@ -1,31 +1,37 @@
 import React from 'react';
-import { compose, bindActionCreators } from 'redux';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { anotherAction, testAction } from '../store/features/example/actions';
+import { fetchIngredients } from '../store/data/ingredient/ingredient.actions';
+import { selectIngredientsById } from '../store/data/ingredient/ingredient.selectors';
 
-// Cmp part
-const App = ({ a, b, c }) => {
+import { fetchPizzas } from '../store/data/pizza/pizza.actions';
+import { selectPizzasById } from '../store/data/pizza/pizza.selectors';
+
+// Component part
+const App = (props) => {
   return (
-    <h1 onClick={() => c(4)}>
-      App Zajecia 5: {a}
+    <h1 onClick={() => {
+      props.fetchIngredients();
+      props.fetchPizzas();
+    }}>
+      App Zajecia 5
     </h1>
   )
 }
 
 // Container part
 const mapState = (state, ownProps) => ({
-  a: state.ui.example.value,
+  ingredientsById: selectIngredientsById(state),
+  pizzasById: selectPizzasById(state),
 });
 
 const mapDispatch = (dispatch, ownProps) => ({
-  b: () => dispatch(testAction),
-  c: value => dispatch(anotherAction(value)),
-})
-
-const mergeProps = (ownProps, stateProps, dispatchProps) => Object.assign({}, ownProps, stateProps, dispatchProps)
+  fetchIngredients: () => dispatch(fetchIngredients),
+  fetchPizzas: () => dispatch(fetchPizzas),
+});
 
 // Enhance part
 export default compose(
-  connect(mapState, mapDispatch, mergeProps)
+  connect(mapState, mapDispatch)
 )(App)
