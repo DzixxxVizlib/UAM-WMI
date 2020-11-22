@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
+import { reducer as UIreducer } from './ui/reducer';
 
 const reducers = {
-  ui: () => null,
+  ui: UIreducer,
   data: () => null,
 };
 
