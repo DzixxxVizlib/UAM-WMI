@@ -5,7 +5,7 @@ const byId = (state = {}, action) => {
   switch (action.type) {
     case pizzaAT.SET_PIZZAS: {
       return action.payload
-        .reduce((accumulator, ingredient) => ({
+        .reduce((accumulator, pizza) => ({
           ...accumulator,
           [pizza.id]: pizza
         }), {});
