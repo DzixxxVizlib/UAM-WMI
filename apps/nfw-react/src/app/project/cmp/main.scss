@@ -1,0 +1,62 @@
+$primary-color: #ffbb00;
+$secondary-color: maroon;
+$tertiary-color: rgb(60, 60, 20);
+//$tertiary-color: rgb(62, 92, 37);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+@mixin easeOut {
+  transition: 0.5s ease-out;
+}
+
+.first-heading {
+  font-size: 2.8rem;
+  color: $secondary-color;
+}
+
+.second-heading {
+  font-size: 2.5rem;
+  color: $primary-color;
+}
+
+.container {
+  min-height: 100vh;
+  background: white;
+}
+
+.button {
+  color: white;
+  background-color: $tertiary-color;
+  height: 1.9rem;
+  width: 7rem;
+  margin: 5px auto 1rem;
+  text-align: center;
+  cursor: pointer;
+  align-self: center;
+  overflow: hidden;
+}
+
+@media all and (min-width: 500px) {
+  .first-heading {
+    font-size: 3.5rem;
+  }
+
+  .second-heading {
+    font-size: 3rem;
+  }
+}
+
+@import './Cart/cart';
+@import './Home/home';
+@import './Menu/menu';
+@import './Nav/nav';
+@import './PizzaList/pizzaList';
+@import './PizzaItem/pizzaItem';
+@import './SauceList/sauceList';
+@import './SauceItem/sauceItem';

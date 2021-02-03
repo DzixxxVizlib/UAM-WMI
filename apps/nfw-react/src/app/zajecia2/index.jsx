@@ -76,13 +76,28 @@ class MyList extends React.Component {
 
 // Exercise 3 - refactor MyList to hooks
 const MyEffectList = props => {
-  // useState
-  // useEffect( ... ,[])
+
+  const [pizza, setPizza] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3333/api/pizza')
+      .then(r => r.json())
+      .then(pizzas => {
+        setPizza( pizzas );
+      })
+
+  }, [])
 
   return (
     <>
-      <p>Exercise 3 - homework ;)</p>
-      
+    <p>Exercise 3 - refactor MyList to hooks</p>
+      <ul>
+        {
+          pizza.map(p => (
+          <li key={p.id}>Pizza: {p.name}, {p.price}$</li>
+          ))
+        }
+      </ul>
     </>
   )
 }

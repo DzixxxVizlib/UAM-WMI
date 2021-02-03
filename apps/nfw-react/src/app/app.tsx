@@ -3,7 +3,8 @@ import React from 'react';
 // import { Zajecia3 } from './zajecia3';
 // import { Zajecia4 } from './zajecia4';
 // import { Zajecia5 } from './zajecia5';
-import { Zajecia6 } from './zajecia6';
+// import { Zajecia6 } from './zajecia6';
+import { Project } from './project';
 
 export const App = () => {
   return (
@@ -11,7 +12,8 @@ export const App = () => {
     // <Zajecia3 />
     // <Zajecia4 />
     // <Zajecia5 />
-    <Zajecia6 />
+    // <Zajecia6 />
+    <Project />
   );
 };
 

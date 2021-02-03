@@ -1,0 +1,80 @@
+.menu {
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+  grid-template-rows: 10vh 6rem auto 6rem auto;
+
+  grid-template-areas:
+    '. . .'
+    '. pizza_heading .'
+    '. menu_pizza .'
+    '. sauce_heading .'
+    '. menu_sauce .';
+  min-height: 100vh;
+
+  &__heading {
+    justify-self: center;
+    align-self: center;
+    font-size: 2.5rem;
+    color: $secondary-color;
+
+    &--pizza {
+      grid-area: pizza_heading;
+    }
+
+    &--sauce {
+      grid-area: sauce_heading;
+    }
+  }
+
+  &__list {
+    justify-self: stretch;
+    list-style-type: none;
+    min-width: 260px;
+    padding: 0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    border-radius: 15px;
+
+    &--pizza {
+      grid-area: menu_pizza;
+    }
+
+    &--sauce {
+      grid-area: menu_sauce;
+      margin: 0 0 3rem;
+    }
+  }
+}
+
+@media all and (min-width: 500px) {
+  .menu {
+    grid-template-columns: 50px auto 50px;
+    grid-template-rows: 6rem auto 6rem auto;
+    grid-template-areas:
+      '. pizza_heading .'
+      '. menu_pizza .'
+      '. sauce_heading .'
+      '. menu_sauce .';
+
+    &__list {
+      width: 60%;
+      min-width: 370px;
+      padding: 1rem 5% 2rem;
+
+      &--pizza {
+        margin: 0 auto;
+      }
+
+      &--sauce {
+        margin: 0 auto 3rem;
+      }
+    }
+
+    &__heading {
+      font-size: 3rem;
+    }
+  }
+}

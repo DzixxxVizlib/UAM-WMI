@@ -1,0 +1,129 @@
+.cart {
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+  grid-template-rows: 10vh 6rem 60vh;
+
+  grid-template-areas:
+    '. . .'
+    '. cart_heading .'
+    '. cart_container .';
+
+  &__heading {
+    grid-area: cart_heading;
+    justify-self: center;
+    align-self: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: $secondary-color;
+    transition: 0.5s ease-out;
+
+    &--one {
+      font-size: 1.8rem;
+    }
+
+    &--two {
+      font-size: 1.3rem;
+
+      &:hover {
+        color: $tertiary-color;
+      }
+    }
+  }
+
+  &__container {
+    grid-area: cart_container;
+    justify-self: stretch;
+    min-width: 260px;
+    display: grid;
+    grid-template-rows: 75% 25%;
+    grid-template-columns: 100%;
+    justify-content: center;
+    padding: 0.5rem 1rem 1rem;
+    border-radius: 15px;
+
+    background-color: $primary-color;
+
+    &--empty {
+      grid-template-rows: 90% 10%;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    list-style-type: none;
+    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    margin: 7px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: $secondary-color;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      text-decoration: line-through;
+    }
+
+    .extra-ingredients {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      &__item {
+        margin-left: 5px;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media all and (min-width: 500px) {
+  .cart {
+    grid-template-columns: 50px auto 50px;
+    grid-template-rows: 6vh 6rem 50vh auto;
+
+    &__container {
+      width: 60%;
+      min-width: 370px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    &__heading {
+      &--one {
+        font-size: 2.3rem;
+      }
+
+      &--two {
+        font-size: 2rem;
+      }
+    }
+
+    &__item {
+      margin: 5px;
+      font-size: 1.5rem;
+
+      .extra-ingredients {
+        &__item {
+          margin-left: 5px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
